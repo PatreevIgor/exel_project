@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @task.code %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @task.task %>
+</p>
+
+<p>
+  <strong>Responsible:</strong>
+  <%= @task.responsible %>
+</p>
+
+<p>
+  <strong>Begin date:</strong>
+  <%= @task.begin_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @task.end_date %>
+</p>
+
+<p>
+  <strong>Count days:</strong>
+  <%= @task.count_days %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @task.status %>
+</p>
+
+<p>
+  <strong>Begin date fact:</strong>
+  <%= @task.begin_date_fact %>
+</p>
+
+<p>
+  <strong>End date fact:</strong>
+  <%= @task.end_date_fact %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @task.budget %>
+</p>
+
+<p>
+  <strong>Debit:</strong>
+  <%= @task.debit %>
+</p>
+
+<p>
+  <strong>Credit:</strong>
+  <%= @task.credit %>
+</p>
+
+<p>
+  <strong>Fund balance:</strong>
+  <%= @task.fund_balance %>
+</p>
+
+<p>
+  <strong>Deviation:</strong>
+  <%= @task.deviation %>
+</p>
+
+<p>
+  <strong>Income:</strong>
+  <%= @task.income %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @task.total %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @task.comments %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

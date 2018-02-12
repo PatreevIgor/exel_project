@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  task: MyString
+  responsible: MyString
+  begin_date: 2018-02-15
+  end_date: 2018-02-15
+  count_days: 1
+  status: MyText
+  begin_date_fact: 2018-02-15
+  end_date_fact: 2018-02-15
+  budget: 1.5
+  debit: 1.5
+  credit: 1.5
+  fund_balance: 1.5
+  deviation: 1.5
+  income: 1.5
+  total: 1.5
+  comments: MyText
+
+two:
+  code: MyString
+  task: MyString
+  responsible: MyString
+  begin_date: 2018-02-15
+  end_date: 2018-02-15
+  count_days: 1
+  status: MyText
+  begin_date_fact: 2018-02-15
+  end_date_fact: 2018-02-15
+  budget: 1.5
+  debit: 1.5
+  credit: 1.5
+  fund_balance: 1.5
+  deviation: 1.5
+  income: 1.5
+  total: 1.5
+  comments: MyText

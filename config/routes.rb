@@ -1,5 +1,22 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :tasks
+
+  resources :tasks do
+    collection do
+      post :button_begin
+      post :button_finish
+    end
+  end
+
+  resources :projects
+  root to: 'tasks#index'
+
+  resources :main do
+    collection do
+      post :button_get_result
+      post :button_count_results
+    end
+  end
 end

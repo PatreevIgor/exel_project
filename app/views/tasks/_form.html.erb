@@ -1,0 +1,62 @@
+<%= form_with(model: task, local: true) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :task_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :task %>
+    <%= form.text_field :task, id: :task_task %>
+  </div>
+
+  <div class="field">
+    <%= form.label :responsible %>
+    <%= form.text_field :responsible, id: :task_responsible %>
+  </div>
+
+  <div class="field">
+    <%= form.label :begin_date %>
+    <%= form.date_select :begin_date, id: :task_begin_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_select :end_date, id: :task_end_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :budget %>
+    <%= form.text_field :budget, id: :task_budget %>
+  </div>
+
+  <div class="field">
+    <%= form.label :debit %>
+    <%= form.text_field :debit, id: :task_debit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :credit %>
+    <%= form.text_field :credit, id: :task_credit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comments %>
+    <%= form.text_area :comments, id: :task_comments %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

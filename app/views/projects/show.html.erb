@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Intfield1:</strong>
+  <%= @project.intfield1 %>
+</p>
+
+<p>
+  <strong>Intfield2:</strong>
+  <%= @project.intfield2 %>
+</p>
+
+<p>
+  <strong>Date1:</strong>
+  <%= @project.date1 %>
+</p>
+
+<p>
+  <strong>Date2:</strong>
+  <%= @project.date2 %>
+</p>
+
+<p>
+  <strong>Date3:</strong>
+  <%= @project.date3 %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
