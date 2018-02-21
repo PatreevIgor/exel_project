@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      History.create(date: DateTime.now - 3, 
+      History.create(date: DateTime.now + 3.hour, 
                   event: 'создал(а)',
                   task: @task.task,
                   owner: current_user.name)
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   def update
 
     if @task.save
-      History.create(date: DateTime.now - 3, 
+      History.create(date: DateTime.now + 3.hour, 
                      event: 'обновил(а)',
                      task: @task.task,
                      owner: current_user.name)
@@ -73,7 +73,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     if @task.destroy
-      History.create(date: DateTime.now - 3, 
+      History.create(date: DateTime.now + 3.hour, 
                   event: 'удалил(а)',
                   task: @task.task,
                   owner: current_user.name)
@@ -88,11 +88,11 @@ class TasksController < ApplicationController
   def button_begin
     id_task = params[:format].to_i
     my_task = Task.find(id_task)
-    my_task.begin_date_fact = DateTime.now.to_date
+    my_task.begin_date_fact = DateTime.now.to_date  + 3.hour
     my_task.save
 
     if my_task.save
-      History.create(date: DateTime.now - 3, 
+      History.create(date: DateTime.now + 3.hour, 
                      event: 'запустил(а)',
                      task: my_task.task,
                      owner: current_user.name)
@@ -110,7 +110,7 @@ class TasksController < ApplicationController
     my_task.save
 
     if my_task.save
-      History.create(date: DateTime.now - 3, 
+      History.create(date: DateTime.now + 3.hour, 
                      event: 'завешил(а)',
                      task: my_task.task,
                      owner: current_user.name)
