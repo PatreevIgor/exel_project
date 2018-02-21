@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /tasks
   # GET /tasks.json
@@ -26,6 +27,13 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
 
+    if @task.save
+      History.create(date: DateTime.now - 3, 
+                  event: 'создал(а)',
+                  task: @task.task,
+                  owner: current_user.name)
+    end
+
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -40,6 +48,14 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+
+    if @task.save
+      History.create(date: DateTime.now - 3, 
+                     event: 'обновил(а)',
+                     task: @task.task,
+                     owner: current_user.name)
+    end
+
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
@@ -55,6 +71,14 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task.destroy
+
+    if @task.destroy
+      History.create(date: DateTime.now - 3, 
+                  event: 'удалил(а)',
+                  task: @task.task,
+                  owner: current_user.name)
+    end
+
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
@@ -67,6 +91,15 @@ class TasksController < ApplicationController
     my_task.begin_date_fact = DateTime.now.to_date
     my_task.save
 
+    if my_task.save
+      History.create(date: DateTime.now - 3, 
+                     event: 'запустил(а)',
+                     task: my_task.task,
+                     owner: current_user.name)
+      my_task.owner = current_user.name
+      my_task.save
+    end
+
     redirect_to root_path
   end
 
@@ -75,6 +108,15 @@ class TasksController < ApplicationController
     my_task = Task.find(id_task)
     my_task.end_date_fact = DateTime.now.to_date
     my_task.save
+
+    if my_task.save
+      History.create(date: DateTime.now - 3, 
+                     event: 'завешил(а)',
+                     task: my_task.task,
+                     owner: current_user.name)
+      my_task.owner = current_user.name
+      my_task.save
+    end
 
     redirect_to root_path
   end

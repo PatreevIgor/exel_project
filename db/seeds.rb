@@ -90,3 +90,5 @@ User.delete_all
 User.create(:email                 => 'sob-igor@mail.ru', 
             :password              => 'sob-igor2018', 
             :password_confirmation => 'sob-igor2018')
+
+Histories.delete_all

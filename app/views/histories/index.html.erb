@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Пользователь</th>
+      <th>Событие</th>
+      <th>Задача</th>
+      <th>Дата</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @histories.each do |history| %>
+      <tr>
+        <td><%= history.owner %></td>
+        <td><%= history.event %></td>
+        <td><%= history.task %></td>
+        <td><%= history.date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
