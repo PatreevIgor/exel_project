@@ -88,7 +88,9 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:code, :task, :responsible, :begin_date, :end_date, :count_days, :status, :begin_date_fact, :end_date_fact, :budget, :debit, :credit, :fund_balance, :deviation, :income, :total, :comments)
+      params.require(:task).permit(:code, :task, :responsible, :begin_date, :end_date, :count_days, :status,
+                                   :begin_date_fact, :end_date_fact, :budget, :debit, :credit, :fund_balance, 
+                                   :deviation, :income, :total, :comments).merge({ owner: current_user.name })
     end
 
     def fill_status

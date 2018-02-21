@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th >Редактор</th>
       <th >Код</th>
       <th >Задачи</th>
       <th >Ответственный</th>
@@ -29,6 +30,7 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
+        <td align="center"><%= task.owner %></td>
         <td align="center"><%= task.code %></td>
         <td align="center"><%= task.task %></td>
         <td align="center"><%= task.responsible %></td>

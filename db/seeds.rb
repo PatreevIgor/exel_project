@@ -85,3 +85,8 @@ Task.create(code: 5,
             income: 400.0,
             total: 500.0,
             comments:'Комментарий 4')
+
+User.delete_all
+User.create(:email                 => 'sob-igor@mail.ru', 
+            :password              => 'sob-igor2018', 
+            :password_confirmation => 'sob-igor2018')

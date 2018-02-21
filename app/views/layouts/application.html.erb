@@ -42,7 +42,7 @@
 
       <a class="navbar-brand" href="https://v4-alpha.getbootstrap.com/examples/starter-template/#">Реестр бизнес проектов</a>
 
-<!--       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="https://v4-alpha.getbootstrap.com/examples/starter-template/#">Home <span class="sr-only">(current)</span></a>
@@ -62,11 +62,23 @@
             </div>
           </li>
         </ul>
+        <div class="email_color">
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <% if user_signed_in? %>
+            Logged in as &nbsp<strong>
+            
+              <%= current_user.name %>
+            
+            </strong> &nbsp
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'email_color' %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+          <% end %>
         </form>
-      </div> -->
+        </div>
+      </div>
     </nav>
 
 
